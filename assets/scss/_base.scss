@@ -1,0 +1,81 @@
+$breakpoint: (
+  sp: 'screen and (max-width: 800px)',
+  tab: 'screen and (max-width: 1000px)',
+  pc: 'screen and (max-width: 1370px)'
+);
+
+@mixin mq($bp) {
+  @media #{map-get($breakpoint, $bp)} {
+    @content;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "yu-mincho-pr6n", sans-serif;
+  // font-family: 'Noto Sans JP', sans-serif;
+  // font-family: 'Noto Serif JP', serif;
+  font-size: 10px;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: 'palt';
+  font-feature-settings: 'palt';
+  /*letter-spacing: .1em;*/
+  color: #221815;
+}
+
+.yumin {
+  font-family: "yu-mincho-pr6n", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.tenmin {
+  font-family: "ten-mincho", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.wrap {
+  width: 100%;
+}
+
+.wrap_inner {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 10% 0;
+}
+
+@media only screen and (max-width: 769px) {
+  .wrap_inner {
+    padding: 0;
+  }
+
+  section {
+    padding: 15% 0;
+  }
+
+}
+
+
+.sp {
+  display: none !important;
+
+  @include mq(sp) {
+    display: block !important;
+  }
+}
+
+.pc {
+  display: block !important;
+
+  @include mq(sp) {
+    display: none !important;
+  }
+}
